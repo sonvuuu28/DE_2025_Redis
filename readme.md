@@ -1,0 +1,16 @@
+# I. Redis
+
+Inmemory-Database
+
+Single Thread
+
+Hỗ trợ nhiều kiểu dữ liệu low-level (Hash, List, Set, …)
+
+# II. Cơ chế hoạt động
+Khi client kết nối Server, Redis đăng ký socket của client với OS kernel thông qua API IO multiplexing
+
+Khi client gửi data, OS kernel phát hiện socket sẵn sàng và thông báo cho Redis
+
+API IO multiplexing là cơ chế do OS kernel cung cấp (ví dụ: epoll trên Linux, IOCP trên Windows)
+
+![alt text](images/operation_mechanism.png)
