@@ -2,7 +2,7 @@
 - Inmemory-Database (Nhanh hơn Disk-DB)
 - Single Thread
 - Hỗ trợ nhiều kiểu dữ liệu low-level (Hash, List, Set, …)
-- Giúp hệ thống chịu tải tốt hơn -> Nâng cao High Avaibility
+- Giúp hệ thống chịu tải tốt hơn (Lớp bảo vệ) -> Nâng cao High Avaibility
 
 # II. Cơ chế hoạt động
 - Khi client kết nối Server, Redis đăng ký socket của client với OS kernel thông qua API IO multiplexing
@@ -11,7 +11,8 @@
 
 ![alt text](images/operation_mechanism.png)
 
-# III. Drawback
-- Giới hạn dung lượng do dữ liệu lưu trong RAM
-- Chủ yếu sử dụng 1 core CPU
-- Không phù hợp làm database chính cho dữ liệu lâu dài
+# III. Lưu ý
+- Không thay database truyền thống
+- Restart server, data trong Redis sẽ mất -> cần cấu hình persistency
+- Nhất quán dữ liệu: Ghi vào Redis trước hay DB khác trước hay cùng lúc
+- Redis Cluster cải thiện điểm yếu 1 luồng
