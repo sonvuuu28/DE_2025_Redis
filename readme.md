@@ -1,7 +1,8 @@
 # I. Redis
-- Inmemory-Database
+- Inmemory-Database (Nhanh hơn Disk-DB)
 - Single Thread
 - Hỗ trợ nhiều kiểu dữ liệu low-level (Hash, List, Set, …)
+- Giúp hệ thống chịu tải tốt hơn -> Nâng cao High Avaibility
 
 # II. Cơ chế hoạt động
 - Khi client kết nối Server, Redis đăng ký socket của client với OS kernel thông qua API IO multiplexing
