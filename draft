@@ -1,0 +1,17 @@
+docker rm -f redis 
+docker rm -f mysql
+docker-compose down -v
+
+docker-compose up -d
+
+docker exec -it mysql mysql -u root -p
+
+show databases;
+use grab;
+
+show tables;
+select count(*) from drivers;
+
+
+
+docker exec -it redis redis-cli

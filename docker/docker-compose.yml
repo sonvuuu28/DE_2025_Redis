@@ -1,0 +1,33 @@
+services:
+  mysql:
+    image: mysql:8.0.44-debian  
+    container_name: mysql
+    ports:
+      - "3307:3306"                    
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./mysql/init:/docker-entrypoint-initdb.d
+    networks:
+      - redis-project
+
+  redis:
+    image: redis:7.2
+    container_name: redis
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+    networks:
+      - redis-project
+volumes:
+  redis-data:
+  mysql-data:
+  
+networks:
+  redis-project:
+    driver: bridge
+
